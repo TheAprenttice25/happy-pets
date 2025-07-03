@@ -13,6 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public')); // Esto sirve para cargar los archivos HTML, CSS, imágenes desde "public"
 
+
+
 async function connectDB() {
   try {
     await client.connect();
