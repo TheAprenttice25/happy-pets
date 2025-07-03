@@ -1,0 +1,9 @@
+mongoDB
+
+Usuario: boynich2025
+Contraseña: kp_EZcLwpF9GVyw
+
+Cadena de conexión MongoDB:
+mongodb+srv://boynich2025:veterpypets25@happypets.unur5yj.mongodb.net/
+
+mongodb+srv://boynich2025:<db_password>@happypets.unur5yj.mongodb.net/?retryWrites=true&w=majority&appName=HappyPetsmongo

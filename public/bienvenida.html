@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Bienvenido</title>
+  <style>
+    body {
+      background-color: #f0fff4;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .mensaje {
+      background-color: white;
+      padding: 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  <div class="mensaje">
+    <h1 id="saludo"></h1>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const usuario = params.get('usuario');
+    const saludo = document.getElementById('saludo');
+
+    if (usuario) {
+      saludo.textContent = `Bienvenido, ${usuario.charAt(0).toUpperCase() + usuario.slice(1)} 🐾`;
+    } else {
+      saludo.textContent = 'Bienvenido';
+    }
+
+    // Redireccionar al formulario real después de 3 segundos
+    setTimeout(() => {
+      window.location.href = "veterinaria.html";
+    }, 3000);
+  </script>
+
+<h2 id="mensaje"></h2>
+
+
+</body>
+</html>

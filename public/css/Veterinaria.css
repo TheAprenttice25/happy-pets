@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  height: 80px;
+  background: #ffe6e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 20px;
+  flex-shrink: 0;
+}
+
+.top-bar img {
+  height: 80%;
+  position: absolute;
+  left: 20px;
+}
+
+.top-bar h1 {
+  font-size: 2.5em;
+  font-weight: 900;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #ff3399;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1%;
+  overflow: hidden;
+}
+
+.image-box {
+  width: 15%;
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  max-height: 100%;
+}
+
+.image-veterinario {
+  background-image: url('/Images/veterinarios.jpg');
+}
+
+.image-mascota {
+  background-image: url('/Images/amigos.jpg');
+}
+
+.form-container {
+  width: 70%;
+  background: white;
+ padding: 50px 70px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: auto;
+  overflow-y: visible;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2a8bfd;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* espacio más reducido entre casillas */
+  justify-content: center;
+  align-content: flex-start;
+  padding-bottom: 30px; /* espacio inferior para evitar corte del botón */
+}
+
+label {
+  width: 100%;
+  font-weight: bold;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+input[type="date"] {
+  font-family: Arial, sans-serif;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-group {
+  width: 45%;
+}
+
+.form-group.full-width {
+  width: 100%;
+}
+
+button,
+.btn-enviar {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #2a8bfd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+button:hover,
+.btn-enviar:hover {
+  background-color: #1a6fd8;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .image-box {
+  width: 20%;
+  background-color: #e0e0e0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0;
+}
+
+
+  .form-container {
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+}

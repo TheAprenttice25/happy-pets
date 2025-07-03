@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="css/login.css">
+
+  <title>Login Veterinario</title>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Ingreso Veterinario</h2>
+    <form id="loginForm">
+      <label for="username">Usuario</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Ingresar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      const usuarios = {
+        'Ruben': 'HappyPetsRuben2025',
+        'Jose': 'HappyPetsJose2025',
+        'Milena': 'HappyPetsMilena2025',
+        'Daniel': 'HappyPetsDaniel2025'
+      };
+
+      if (usuarios[username] && usuarios[username] === password) {
+        window.location.href = `bienvenida.html?usuario=${encodeURIComponent(username)}`;
+      } else {
+        alert('Usuario o contraseña incorrectos');
+      }
+    });
+  </script>
+</body>
+</html>
