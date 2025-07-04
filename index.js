@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
 
@@ -58,12 +59,18 @@ app.post('/registro', async (req, res) => {
   }
 });
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+
 // (Opcional) Mostrar veterinaria.html al ir a la raíz
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/veterinaria.html');
 });
 
 // Iniciar servidor
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
 });
