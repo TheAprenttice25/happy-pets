@@ -13,6 +13,11 @@ let db;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.get('/veterinaria.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'veterinaria.html'));
+});
+
+
 // Servir archivos estáticos desde /public
 app.use(express.static('public'));
 
