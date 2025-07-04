@@ -4,28 +4,30 @@ const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 3000;
 const uri = 'mongodb://localhost:27017'; // Cambia si usas Mongo Atlas
 const client = new MongoClient(uri);
 let db;
 
-// Middleware para recibir formularios
+// Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static('public')); // Servir carpeta public
 
-app.get('/veterinaria.html', (req, res) => {
+// Mostrar veterinaria.html al acceder a "/"
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'veterinaria.html'));
 });
 
-
-// Servir archivos estáticos desde /public
-app.use(express.static('public'));
+// También se puede acceder directo
+app.get('/veterinaria.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'veterinaria.html'));
+});
 
 // Conectar a MongoDB
 async function connectDB() {
   try {
     await client.connect();
-    db = client.db('veterinaria'); // Usa el nombre de tu base
+    db = client.db('veterinaria');
     console.log('✅ Conectado a MongoDB');
   } catch (err) {
     console.error('❌ Error al conectar a MongoDB:', err);
@@ -33,7 +35,7 @@ async function connectDB() {
 }
 connectDB();
 
-// Ruta para guardar los datos del formulario
+// Guardar datos del formulario
 app.post('/registro', async (req, res) => {
   const datos = {
     dueño: {
@@ -64,18 +66,8 @@ app.post('/registro', async (req, res) => {
   }
 });
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-
-// (Opcional) Mostrar veterinaria.html al ir a la raíz
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/veterinaria.html');
-});
-
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
 });
