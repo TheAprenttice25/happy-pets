@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Ruta por defecto
-app.get('/', (req, res) => {
+app.get('/veterinaria', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'veterinaria.html'));
 });
 
