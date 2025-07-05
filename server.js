@@ -3,23 +3,24 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 10000;
 
-// Servir archivos estáticos desde public/
+// Servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Ruta raíz: mostrar login.html
-app.get('/login', (req, res) => {
+// Ruta raíz → login o veterinaria
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
-// Rutas opcionales
-app.get('/bienvenida', (req, res) => {
+app.get('/bienvenida.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'bienvenida.html'));
 });
 
-app.get('/veterinaria', (req, res) => {
+// Otras rutas
+app.get('/veterinaria.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'veterinaria.html'));
 });
 
+// Escuchar
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
 });
