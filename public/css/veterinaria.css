@@ -58,11 +58,13 @@ html, body {
 }
 
 .image-veterinario {
-  background-image: url('/Images/veterinarios.jpg');
+ background-image: url('Images/veterinarios.jpg');
+
 }
 
 .image-mascota {
-  background-image: url('/Images/amigos.jpg');
+  background-image: url('Images/amigos.jpg');
+
 }
 
 .form-container {
