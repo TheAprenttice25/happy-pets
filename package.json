@@ -1,19 +1,18 @@
 {
   "name": "veterinaria",
   "version": "1.0.0",
-  "main": "veterinaria.js",
-"scripts": {
-  "start": "node server.js"
-}
-
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "description": "Sistema de hospitalización veterinaria Happy Pets",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "body-parser": "^2.2.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "mongodb": "^6.17.0"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
