@@ -2,9 +2,10 @@
   "name": "veterinaria",
   "version": "1.0.0",
   "main": "veterinaria.js",
-  "scripts": {
-    "start": "node veterinaria.js"
-  },
+"scripts": {
+  "start": "node server.js"
+}
+
   "keywords": [],
   "author": "",
   "license": "ISC",
