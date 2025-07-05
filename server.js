@@ -7,16 +7,16 @@ const PORT = process.env.PORT || 10000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Ruta raíz: mostrar login.html
-app.get('/login.html', (req, res) => {
+app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
 // Rutas opcionales
-app.get('/bienvenida.html', (req, res) => {
+app.get('/bienvenida', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'bienvenida.html'));
 });
 
-app.get('/veterinaria.html', (req, res) => {
+app.get('/veterinaria', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'veterinaria.html'));
 });
 
