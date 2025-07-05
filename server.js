@@ -11,12 +11,12 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
-app.get('/bienvenida.html', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'bienvenida.html'));
 });
 
 // Otras rutas
-app.get('/veterinaria.html', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'veterinaria.html'));
 });
 
