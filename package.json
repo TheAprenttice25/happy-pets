@@ -1,10 +1,10 @@
 {
-  "name": "veterinaria",
+  "name": "happy-pets",
   "version": "1.0.0",
-  "description": "Sistema de hospitalización veterinaria Happy Pets",
-  "main": "server.js",
+  "description": "Sistema de hospitalización veterinaria",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^2.2.0",
