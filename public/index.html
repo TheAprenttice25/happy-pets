@@ -1,68 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="index.css">
-
-<title>Happy Pets</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Pets</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
 
-
   <!-- Barra superior con logo -->
   <div class="top-bar">
-    <img src="/public/Images/Logo.png" alt="Logo">
+    <img src="Images/Logo.png" alt="Logo" />
     <h1>Registro de hospitalización</h1>
   </div>
 
   <!-- Contenedor principal con imágenes laterales y formulario -->
   <div class="container">
+
     <!-- Imagen izquierda -->
     <div class="image-box image-veterinario"></div>
 
     <!-- Formulario central -->
     <div class="form-container">
-      
-
-    <!-- Aquí estaba el título de registo de hopitalización -->
       <form method="POST" action="/registro">
         <!-- Datos del dueño -->
         <div class="form-group">
           <label for="nombre_dueño">Nombre del Dueño</label>
-          <input type="text" id="nombre_dueño" name="nombre_dueño" required>
+          <input type="text" id="nombre_dueño" name="nombre_dueño" required />
         </div>
         <div class="form-group">
           <label for="apellido_dueño">Apellido</label>
-          <input type="text" id="apellido_dueño" name="apellido_dueño" required>
+          <input type="text" id="apellido_dueño" name="apellido_dueño" required />
         </div>
         <div class="form-group">
           <label for="telefono">Teléfono</label>
-          <input type="tel" id="telefono" name="telefono">
+          <input type="tel" id="telefono" name="telefono" />
         </div>
         <div class="form-group">
           <label for="direccion">Dirección</label>
-          <input type="text" id="direccion" name="direccion">
+          <input type="text" id="direccion" name="direccion" />
         </div>
 
         <!-- Datos de la mascota -->
         <div class="form-group">
           <label for="nombre_mascota">Nombre de la Mascota</label>
-          <input type="text" id="nombre_mascota" name="nombre_mascota">
+          <input type="text" id="nombre_mascota" name="nombre_mascota" />
         </div>
         <div class="form-group">
           <label for="especie">Especie</label>
-          <input type="text" id="especie" name="especie">
+          <input type="text" id="especie" name="especie" />
         </div>
         <div class="form-group">
           <label for="raza">Raza</label>
-          <input type="text" id="raza" name="raza">
+          <input type="text" id="raza" name="raza" />
         </div>
         <div class="form-group">
           <label for="edad">Edad</label>
-          <input type="number" id="edad" name="edad" min="0">
+          <input type="number" id="edad" name="edad" min="0" />
         </div>
 
         <!-- Diagnóstico y fechas -->
@@ -76,11 +71,11 @@
         </div>
         <div class="form-group">
           <label for="fecha_ingreso">Fecha de Ingreso</label>
-          <input type="date" id="fecha_ingreso" name="fecha_ingreso">
+          <input type="date" id="fecha_ingreso" name="fecha_ingreso" />
         </div>
         <div class="form-group">
           <label for="fecha_salida">Fecha Estimada de Salida</label>
-          <input type="date" id="fecha_salida" name="fecha_salida">
+          <input type="date" id="fecha_salida" name="fecha_salida" />
         </div>
 
         <!-- Botón enviar -->
