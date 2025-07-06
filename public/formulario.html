@@ -9,141 +9,149 @@
 
 <body>
 
-<!-- Linea de logueado -->
+<!-- 🔐 Línea de control de acceso -->
 <script>
   if (localStorage.getItem('logueado') !== 'true') {
     window.location.href = 'login.html';
   }
 </script>
 
-  <!-- Barra superior con logo -->
-  <div class="top-bar">
+<!-- ✅ Barra superior con logo y botón cerrar sesión -->
+<div class="top-bar" style="display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center;">
     <img src="Images/Logo.png" alt="Logo" />
-    <h1>Registro de hospitalización</h1>
+    <h1 style="margin-left: 10px;">Registro de hospitalización</h1>
   </div>
+  <button id="logoutBtn" type="button" style="
+    padding: 8px 12px;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+  ">
+    Cerrar sesión
+  </button>
+</div>
 
-  <!-- Contenedor principal con imágenes laterales y formulario -->
-  <div class="container">
+<!-- Contenedor principal -->
+<div class="container">
 
-    <!-- Imagen izquierda -->
-    <div class="image-box image-veterinario"></div>
+  <!-- Imagen izquierda -->
+  <div class="image-box image-veterinario"></div>
 
-    <!-- Formulario central -->
-    <div class="form-container">
-      <form id="formulario-hospitalizacion">
-        <!-- Datos del dueño -->
-        <div class="form-group">
-          <label for="nombre_dueño">Nombre del Dueño</label>
-          <input type="text" id="nombre_dueño" name="nombre_dueño" required />
-        </div>
-        <div class="form-group">
-          <label for="apellido_dueño">Apellido</label>
-          <input type="text" id="apellido_dueño" name="apellido_dueño" required />
-        </div>
-        <div class="form-group">
-          <label for="telefono">Teléfono</label>
-          <input type="tel" id="telefono" name="telefono" />
-        </div>
-        <div class="form-group">
-          <label for="direccion">Dirección</label>
-          <input type="text" id="direccion" name="direccion" />
-        </div>
-
-        <!-- Datos de la mascota -->
-        <div class="form-group">
-          <label for="nombre_mascota">Nombre de la Mascota</label>
-          <input type="text" id="nombre_mascota" name="nombre_mascota" />
-        </div>
-        <div class="form-group">
-          <label for="especie">Especie</label>
-          <input type="text" id="especie" name="especie" />
-        </div>
-        <div class="form-group">
-          <label for="raza">Raza</label>
-          <input type="text" id="raza" name="raza" />
-        </div>
-        <div class="form-group">
-          <label for="edad">Edad</label>
-          <input type="number" id="edad" name="edad" min="0" />
-        </div>
-
-        <!-- Diagnóstico y fechas -->
-        <div class="form-group" style="width: 100%;">
-          <label for="motivo_consulta">Motivo de la consulta / Descripción de ingreso</label>
-          <textarea id="motivo_consulta" name="motivo_consulta" rows="3" required></textarea>
-        </div>
-        <div class="form-group" style="width: 100%;">
-          <label for="diagnostico">Diagnóstico</label>
-          <textarea id="diagnostico" name="diagnostico" rows="3"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="fecha_ingreso">Fecha de Ingreso</label>
-          <input type="date" id="fecha_ingreso" name="fecha_ingreso" />
-        </div>
-        <div class="form-group">
-          <label for="fecha_salida">Fecha Estimada de Salida</label>
-          <input type="date" id="fecha_salida" name="fecha_salida" />
-        </div>
-
-        <!-- Botón enviar -->
-        <div class="form-group" style="width: 100%; text-align: center;">
-          <button type="submit" class="btn-enviar">Enviar formulario</button>
-        </div>
-      </form>
-
-      <!-- ✅ Botón de cerrar sesión fuera del form -->
-      <div class="form-group" style="width: 100%; text-align: center; margin-top: 10px;">
-        <button id="logoutBtn" type="button" class="btn-enviar" style="background-color: #c0392b;">
-          Cerrar sesión
-        </button>
+  <!-- Formulario -->
+  <div class="form-container">
+    <form id="formulario-hospitalizacion">
+      <!-- Datos del dueño -->
+      <div class="form-group">
+        <label for="nombre_dueño">Nombre del Dueño</label>
+        <input type="text" id="nombre_dueño" name="nombre_dueño" required />
       </div>
-    </div>
+      <div class="form-group">
+        <label for="apellido_dueño">Apellido</label>
+        <input type="text" id="apellido_dueño" name="apellido_dueño" required />
+      </div>
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" />
+      </div>
+      <div class="form-group">
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" name="direccion" />
+      </div>
 
-    <!-- Imagen derecha -->
-    <div class="image-box image-mascota"></div>
+      <!-- Datos de la mascota -->
+      <div class="form-group">
+        <label for="nombre_mascota">Nombre de la Mascota</label>
+        <input type="text" id="nombre_mascota" name="nombre_mascota" />
+      </div>
+      <div class="form-group">
+        <label for="especie">Especie</label>
+        <input type="text" id="especie" name="especie" />
+      </div>
+      <div class="form-group">
+        <label for="raza">Raza</label>
+        <input type="text" id="raza" name="raza" />
+      </div>
+      <div class="form-group">
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" name="edad" min="0" />
+      </div>
+
+      <!-- Diagnóstico y fechas -->
+      <div class="form-group" style="width: 100%;">
+        <label for="motivo_consulta">Motivo de la consulta / Descripción de ingreso</label>
+        <textarea id="motivo_consulta" name="motivo_consulta" rows="3" required></textarea>
+      </div>
+      <div class="form-group" style="width: 100%;">
+        <label for="diagnostico">Diagnóstico</label>
+        <textarea id="diagnostico" name="diagnostico" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="fecha_ingreso">Fecha de Ingreso</label>
+        <input type="date" id="fecha_ingreso" name="fecha_ingreso" />
+      </div>
+      <div class="form-group">
+        <label for="fecha_salida">Fecha Estimada de Salida</label>
+        <input type="date" id="fecha_salida" name="fecha_salida" />
+      </div>
+
+      <!-- Botón enviar -->
+      <div class="form-group" style="width: 100%; text-align: center;">
+        <button type="submit" class="btn-enviar">Enviar formulario</button>
+      </div>
+    </form>
   </div>
 
-  <!-- ✅ Script para cerrar sesión -->
-  <script>
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      fetch('/logout', { method: 'POST' })
-        .then(res => res.json())
-        .then(() => {
-          localStorage.removeItem('logueado'); // Limpia localStorage también
+  <!-- Imagen derecha -->
+  <div class="image-box image-mascota"></div>
+</div>
+
+<!-- ✅ Script para cerrar sesión -->
+<script>
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    fetch('/logout', { method: 'POST' })
+      .then(res => {
+        if (res.ok) {
+          localStorage.removeItem('logueado');
           window.location.href = '/login.html';
-        })
-        .catch(err => {
-          console.error('Error al cerrar sesión:', err);
-        });
-    });
-  </script>
+        } else {
+          console.error('Fallo al cerrar sesión en backend');
+        }
+      })
+      .catch(err => {
+        console.error('Error al cerrar sesión:', err);
+      });
+  });
+</script>
 
-  <!-- ✅ Script para enviar el formulario como JSON -->
-  <script>
-    document.querySelector('#formulario-hospitalizacion').addEventListener('submit', async function (e) {
-      e.preventDefault(); // Detiene el envío normal
+<!-- ✅ Script para enviar el formulario como JSON -->
+<script>
+  document.querySelector('#formulario-hospitalizacion').addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-      const datos = Object.fromEntries(new FormData(this).entries());
+    const datos = Object.fromEntries(new FormData(this).entries());
 
-      try {
-        const res = await fetch('/registro', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(datos)
-        });
+    try {
+      const res = await fetch('/registro', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
+      });
 
-        const respuesta = await res.json();
-        alert(respuesta.mensaje || '✅ Formulario enviado con éxito');
-
-        this.reset(); // Limpia el formulario si todo va bien
-      } catch (error) {
-        alert('❌ Error al enviar el formulario');
-        console.error(error);
-      }
-    });
-  </script>
+      const respuesta = await res.json();
+      alert(respuesta.mensaje || '✅ Formulario enviado con éxito');
+      this.reset();
+    } catch (error) {
+      alert('❌ Error al enviar el formulario');
+      console.error(error);
+    }
+  });
+</script>
 
 </body>
 </html>
