@@ -16,7 +16,6 @@
   }
 </script>
 
-
   <!-- Barra superior con logo -->
   <div class="top-bar">
     <img src="Images/Logo.png" alt="Logo" />
@@ -89,33 +88,35 @@
         <!-- Botón enviar -->
         <div class="form-group" style="width: 100%; text-align: center;">
           <button type="submit" class="btn-enviar">Enviar formulario</button>
-
         </div>
       </form>
+
+      <!-- ✅ Botón de cerrar sesión fuera del form -->
+      <div class="form-group" style="width: 100%; text-align: center; margin-top: 10px;">
+        <button id="logoutBtn" type="button" class="btn-enviar" style="background-color: #c0392b;">
+          Cerrar sesión
+        </button>
+      </div>
     </div>
-
-<!--Cerrar sesion con backend (Outlog real)-->
-<button id="logoutBtn">Cerrar sesión</button>
-
-<!--Scrip cierre de sesión-->
-<script>
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    fetch('/logout', { method: 'POST' })
-      .then(res => res.json())
-      .then(() => {
-        window.location.href = '/login.html';
-      })
-      .catch(err => {
-        console.error('Error al cerrar sesión:', err);
-      });
-  });
-</script>
-
-
 
     <!-- Imagen derecha -->
     <div class="image-box image-mascota"></div>
   </div>
+
+  <!-- ✅ Script para cerrar sesión -->
+  <script>
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      fetch('/logout', { method: 'POST' })
+        .then(res => res.json())
+        .then(() => {
+          localStorage.removeItem('logueado'); // Limpia localStorage también
+          window.location.href = '/login.html';
+        })
+        .catch(err => {
+          console.error('Error al cerrar sesión:', err);
+        });
+    });
+  </script>
 
   <!-- ✅ Script para enviar el formulario como JSON -->
   <script>
@@ -143,7 +144,6 @@
       }
     });
   </script>
-
 
 </body>
 </html>
