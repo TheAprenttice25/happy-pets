@@ -36,6 +36,9 @@
       };
 
       if (usuarios[username] && usuarios[username] === password) {
+        // Guardar sesión ANTES de redirigir
+localStorage.setItem('logueado', 'true');
+
         window.location.href = `bienvenida.html?usuario=${encodeURIComponent(username)}`;
       } else {
         alert('Usuario o contraseña incorrectos');
