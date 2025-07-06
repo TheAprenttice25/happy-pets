@@ -31,10 +31,16 @@ app.use(express.json()); // Para leer JSON del frontend
 // 📁 Servir archivos estáticos desde /public
 app.use(express.static(path.join(__dirname, 'public')));
 
-// 🌐 Ruta principal (redirige a index.html)
+
+
+
+//  Ruta principal a login
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
+
+
+
 
 // 🔌 Conexión a MongoDB Atlas
 console.log("🔗 URI de Mongo:", process.env.MONGO_URI);
