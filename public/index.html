@@ -2,10 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width">
- <link rel="stylesheet" href="index.css" />
-  
- <title>Happy Pets</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="index.css" />
+  <title>Happy Pets</title>
 </head>
 
 <body>
@@ -24,7 +23,7 @@
 
     <!-- Formulario central -->
     <div class="form-container">
-      <form method="POST" action="/registro">
+      <form id="formulario-hospitalizacion">
         <!-- Datos del dueño -->
         <div class="form-group">
           <label for="nombre_dueño">Nombre del Dueño</label>
@@ -89,6 +88,33 @@
     <!-- Imagen derecha -->
     <div class="image-box image-mascota"></div>
   </div>
+
+  <!-- ✅ Script para enviar el formulario como JSON -->
+  <script>
+    document.querySelector('#formulario-hospitalizacion').addEventListener('submit', async function (e) {
+      e.preventDefault(); // Detiene el envío normal
+
+      const datos = Object.fromEntries(new FormData(this).entries());
+
+      try {
+        const res = await fetch('/registro', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(datos)
+        });
+
+        const respuesta = await res.json();
+        alert(respuesta.mensaje || '✅ Formulario enviado con éxito');
+
+        this.reset(); // Limpia el formulario si todo va bien
+      } catch (error) {
+        alert('❌ Error al enviar el formulario');
+        console.error(error);
+      }
+    });
+  </script>
 
 </body>
 </html>
