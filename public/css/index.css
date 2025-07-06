@@ -1,3 +1,4 @@
+/* Reset y base */
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +14,7 @@ html, body {
   flex-direction: column;
 }
 
+/* Encabezado superior */
 .top-bar {
   height: 80px;
   background: #ffe6e6;
@@ -37,6 +39,7 @@ html, body {
   color: #ff3399;
 }
 
+/* Contenedor principal */
 .container {
   flex: 1;
   display: flex;
@@ -46,6 +49,7 @@ html, body {
   overflow: hidden;
 }
 
+/* Columnas de imágenes */
 .image-box {
   width: 15%;
   background-color: #e0e0e0;
@@ -58,19 +62,18 @@ html, body {
 }
 
 .image-veterinario {
- background-image: url('Images/veterinarios.jpg');
-
+  background-image: url('Images/veterinarios.jpg');
 }
 
 .image-mascota {
   background-image: url('Images/amigos.jpg');
-
 }
 
+/* Contenedor del formulario */
 .form-container {
   width: 70%;
   background: white;
- padding: 50px 70px;
+  padding: 50px 70px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   height: auto;
@@ -83,13 +86,14 @@ html, body {
   color: #2a8bfd;
 }
 
+/* Estilos del formulario */
 form {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* espacio más reducido entre casillas */
+  gap: 20px;
   justify-content: center;
   align-content: flex-start;
-  padding-bottom: 30px; /* espacio inferior para evitar corte del botón */
+  padding-bottom: 30px;
 }
 
 label {
@@ -109,10 +113,6 @@ input, textarea {
 
 input[type="date"] {
   font-family: Arial, sans-serif;
-  padding: 6px 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
 }
 
 .form-group {
@@ -123,6 +123,7 @@ input[type="date"] {
   width: 100%;
 }
 
+/* Botón */
 button,
 .btn-enviar {
   margin-top: 20px;
@@ -142,6 +143,7 @@ button:hover,
   background-color: #1a6fd8;
 }
 
+/* Responsive */
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
@@ -150,13 +152,9 @@ button:hover,
   }
 
   .image-box {
-  width: 20%;
-  background-color: #e0e0e0;
-  background-size: cover;
-  background-position: center;
-  border-radius: 0;
-}
-
+    width: 20%;
+    border-radius: 0;
+  }
 
   .form-container {
     width: 90%;

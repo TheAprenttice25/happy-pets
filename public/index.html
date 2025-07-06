@@ -1,121 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="/css/index.css">
-
-<title>Happy Pets</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veterinaria Happy Pets</title>
+  <link rel="stylesheet" href="index.html">
 </head>
-
 <body>
 
-
-<!-- PRUEBA-->
-
-<body>
+  <!-- Encabezado -->
   <div class="top-bar">
-    <img src="Images/logo.png" alt="Logo"> <!-- Puedes reemplazar el logo si no lo tienes -->
+    <img src="Images/logo.png" alt="Logo Happy Pets">
     <h1>Veterinaria Happy Pets</h1>
   </div>
 
+  <!-- Contenido principal -->
   <div class="container">
-    <!-- Aquí va el resto del contenido -->
-  </div>
-</body>
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Barra superior con logo -->
-  <div class="top-bar">
-    <img src="images/Logo.png" alt="Logo">
-    <h1>Registro de hospitalización</h1>
-  </div>
-
-  <!-- Contenedor principal con imágenes laterales y formulario -->
-  <div class="container">
-    <!-- Imagen izquierda -->
     <div class="image-box image-veterinario"></div>
 
-    <!-- Formulario central -->
     <div class="form-container">
-      
-
-    <!-- Aquí estaba el título de registo de hopitalización -->
-      <form method="POST" action="/registro">
-        <!-- Datos del dueño -->
+      <h2>Formulario de hospitalización</h2>
+      <form id="form-hospitalizacion">
+        <!-- Primera columna -->
         <div class="form-group">
-          <label for="nombre_dueño">Nombre del Dueño</label>
-          <input type="text" id="nombre_dueño" name="nombre_dueño" required>
-        </div>
-        <div class="form-group">
-          <label for="apellido_dueño">Apellido</label>
-          <input type="text" id="apellido_dueño" name="apellido_dueño" required>
-        </div>
-        <div class="form-group">
-          <label for="telefono">Teléfono</label>
-          <input type="tel" id="telefono" name="telefono">
-        </div>
-        <div class="form-group">
-          <label for="direccion">Dirección</label>
-          <input type="text" id="direccion" name="direccion">
+          <label for="nombre">Nombre del paciente</label>
+          <input type="text" id="nombre" name="nombre">
         </div>
 
-        <!-- Datos de la mascota -->
-        <div class="form-group">
-          <label for="nombre_mascota">Nombre de la Mascota</label>
-          <input type="text" id="nombre_mascota" name="nombre_mascota">
-        </div>
         <div class="form-group">
           <label for="especie">Especie</label>
           <input type="text" id="especie" name="especie">
         </div>
-        <div class="form-group">
-          <label for="raza">Raza</label>
-          <input type="text" id="raza" name="raza">
-        </div>
+
         <div class="form-group">
           <label for="edad">Edad</label>
-          <input type="number" id="edad" name="edad" min="0">
+          <input type="number" id="edad" name="edad">
         </div>
 
-        <!-- Diagnóstico y fechas -->
-        <div class="form-group" style="width: 100%;">
-          <label for="motivo_consulta">Motivo de la consulta / Descripción de ingreso</label>
-          <textarea id="motivo_consulta" name="motivo_consulta" rows="3" required></textarea>
+        <div class="form-group">
+          <label for="sexo">Sexo</label>
+          <input type="text" id="sexo" name="sexo">
         </div>
-        <div class="form-group" style="width: 100%;">
+
+        <div class="form-group">
+          <label for="peso">Peso (kg)</label>
+          <input type="number" step="0.01" id="peso" name="peso">
+        </div>
+
+        <!-- Segunda columna -->
+        <div class="form-group">
+          <label for="propietario">Nombre del propietario</label>
+          <input type="text" id="propietario" name="propietario">
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono de contacto</label>
+          <input type="tel" id="telefono" name="telefono">
+        </div>
+
+        <div class="form-group full-width">
           <label for="diagnostico">Diagnóstico</label>
           <textarea id="diagnostico" name="diagnostico" rows="3"></textarea>
         </div>
+
         <div class="form-group">
-          <label for="fecha_ingreso">Fecha de Ingreso</label>
-          <input type="date" id="fecha_ingreso" name="fecha_ingreso">
-        </div>
-        <div class="form-group">
-          <label for="fecha_salida">Fecha Estimada de Salida</label>
-          <input type="date" id="fecha_salida" name="fecha_salida">
+          <label for="fecha-ingreso">Fecha de ingreso</label>
+          <input type="date" id="fecha-ingreso" name="fecha-ingreso">
         </div>
 
-        <!-- Botón enviar -->
-        <div class="form-group" style="width: 100%; text-align: center;">
-          <button type="submit" class="btn-enviar">Enviar formulario</button>
+        <div class="form-group">
+          <label for="fecha-salida">Fecha de salida</label>
+          <input type="date" id="fecha-salida" name="fecha-salida">
         </div>
+
+        <!-- Botón -->
+        <button type="submit" class="btn-enviar">Enviar</button>
       </form>
     </div>
 
-    <!-- Imagen derecha -->
     <div class="image-box image-mascota"></div>
   </div>
 
+  <script src="veterinaria.js"></script>
 </body>
 </html>
