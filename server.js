@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 
 //  Ruta principal a login
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+  res.sendFile(path.join(__dirname, 'public', '/login.html'));
 });
 
 
