@@ -1,3 +1,5 @@
+const Modelo = require('./models/registro');
+
 const mongoose = require('mongoose');
 
 const registroSchema = new mongoose.Schema({
