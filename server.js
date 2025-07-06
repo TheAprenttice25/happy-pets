@@ -31,7 +31,9 @@ app.use(express.json()); // Para leer JSON del frontend
 // 📁 Servir archivos estáticos desde /public
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.get('/', (req, res) => {
+  res.redirect('/login.html'); // Redirige manualmente a login
+});
 
 
 //  Ruta principal a login
