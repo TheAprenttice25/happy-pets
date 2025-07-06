@@ -7,7 +7,25 @@ const Modelo = require('./models/registro'); // ✅ Aquí importas el modelo
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+
+const allowedOrigins = [
+  'http://localhost:10000', // Desarrollo local
+  'https://happy-pets-csqm.onrender.com', // 🔁 Reemplaza con tu URL de frontend real
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('❌ No permitido por CORS'));
+    }
+  }
+}));
+
+
+
 app.use(express.json()); // NECESARIO para leer JSON desde el frontend
 
 console.log("URI de Mongo:", process.env.MONGO_URI);
