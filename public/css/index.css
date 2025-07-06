@@ -1,3 +1,7 @@
+body {
+  background-color: yellow;
+}
+
 /* Reset y base */
 * {
   margin: 0;
