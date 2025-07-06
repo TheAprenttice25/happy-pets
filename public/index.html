@@ -8,6 +8,20 @@
 </head>
 <body>
 
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const usuario = localStorage.getItem("nombreUsuario");
+    if (!usuario) {
+      window.location.href = "login.html";
+    }
+  });
+</script>
+
+
+
+
+
   <!-- Encabezado -->
   <div class="top-bar">
     <img src="Images/logo.png" alt="Logo Happy Pets">
