@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const Registro = require('./models/Registro'); // Asegúrate de que el modelo exista
+const Registro = require('./models/registro'); // ✅ en minúscula, coincide con el archivo real
 require('dotenv').config();
 
 const app = express();
