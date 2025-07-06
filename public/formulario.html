@@ -89,6 +89,26 @@
         <!-- Botón enviar -->
         <div class="form-group" style="width: 100%; text-align: center;">
           <button type="submit" class="btn-enviar">Enviar formulario</button>
+
+<!--Cerrar sesion con backend (Outlog real)-->
+<button id="logoutBtn">Cerrar sesión</button>
+
+<!--Scrip cierre de sesión-->
+<script>
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    fetch('/logout', { method: 'POST' })
+      .then(res => res.json())
+      .then(() => {
+        window.location.href = '/login.html';
+      })
+      .catch(err => {
+        console.error('Error al cerrar sesión:', err);
+      });
+  });
+</script>
+
+
+
         </div>
       </form>
     </div>
@@ -123,23 +143,6 @@
       }
     });
   </script>
-
-<!--Cerrar sesion con backend (Outlog real)-->
-<button id="logoutBtn">Cerrar sesión</button>
-
-<!--Scrip cierre de sesión-->
-<script>
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    fetch('/logout', { method: 'POST' })
-      .then(res => res.json())
-      .then(() => {
-        window.location.href = '/login.html';
-      })
-      .catch(err => {
-        console.error('Error al cerrar sesión:', err);
-      });
-  });
-</script>
 
 
 </body>
