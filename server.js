@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 🌐 Ruta principal (redirige a index.html)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
 // 🔌 Conexión a MongoDB Atlas
