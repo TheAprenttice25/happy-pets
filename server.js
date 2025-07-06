@@ -2,16 +2,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path');
 const Modelo = require('./models/registro');
 
 dotenv.config();
 
 const app = express();
 
-//  CORS: permitir solo orígenes autorizados
+// CORS: permitir solo orígenes autorizados
 const allowedOrigins = [
-  'http://localhost:10000', // Desarrollo local
-  'https://happy-pets-csqm.onrender.com', // Producción (Render)
+  'http://localhost:10000',
+  'https://happy-pets-csqm.onrender.com',
 ];
 
 app.use(cors({
@@ -19,17 +20,26 @@ app.use(cors({
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.warn(`🌐 Bloqueado por CORS: ${origin}`);
       callback(new Error('❌ No permitido por CORS'));
     }
   }
 }));
 
-app.use(express.json()); // Permite recibir JSON
+app.use(express.json()); // Para leer JSON del frontend
 
-// Verifica que la URI esté presente
+// 📁 Servir archivos estáticos desde /public
+app.use(express.static(path.join(__dirname, 'public')));
+
+// 🌐 Ruta principal (redirige a index.html)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// 🔌 Conexión a MongoDB Atlas
 console.log("🔗 URI de Mongo:", process.env.MONGO_URI);
 
-// 🔌 Conexión a MongoDB Atlas (opciones limpias)
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ Conectado a MongoDB Atlas'))
   .catch(err => {
@@ -37,7 +47,7 @@ mongoose.connect(process.env.MONGO_URI)
     process.exit(1);
   });
 
-//  Ruta para registrar datos
+// 🚀 Ruta para registrar datos
 app.post('/registro', async (req, res) => {
   try {
     const nuevoRegistro = new Modelo(req.body);
@@ -48,6 +58,8 @@ app.post('/registro', async (req, res) => {
     res.status(500).json({ mensaje: '❌ Error del servidor' });
   }
 });
+
+// ✅ Puerto para Render o local
 const PORT = process.env.PORT || 10000;
 
 app.listen(PORT, () => {
