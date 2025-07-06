@@ -124,5 +124,23 @@
     });
   </script>
 
+<!--Cerrar sesion con backend (Outlog real)-->
+<button id="logoutBtn">Cerrar sesión</button>
+
+<!--Scrip cierre de sesión-->
+<script>
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    fetch('/logout', { method: 'POST' })
+      .then(res => res.json())
+      .then(() => {
+        window.location.href = '/login.html';
+      })
+      .catch(err => {
+        console.error('Error al cerrar sesión:', err);
+      });
+  });
+</script>
+
+
 </body>
 </html>

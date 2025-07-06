@@ -82,3 +82,16 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     console.error('❌ Error de conexión a MongoDB:', err);
     process.exit(1);
   });
+
+  //Para cerrar sesión (logout)//
+  app.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error('Error cerrando sesión:', err);
+      return res.status(500).json({ mensaje: 'Error al cerrar sesión' });
+    }
+    res.clearCookie('connect.sid'); // cookie por defecto de express-session
+    res.json({ mensaje: 'Sesión cerrada correctamente' });
+  });
+});
+
